@@ -15,7 +15,7 @@ Autor: **Manuel Romero Fraidía** (Departamento de Tecnología, IES Murillo, Sev
 
 ## Qué contiene cada práctica actualizada
 
-- Esquema de conexión para **Arduino UNO** y **ESP32 STEAMakers** (protoboard), con tabla de pines y variante para la shield **Imagina TdR STEAM**.
+- Montaje en protoboard y esquema eléctrico para **Arduino UNO** y **ESP32 STEAMakers**, con tabla de pines y variante para la shield **Imagina TdR STEAM**.
 - Programa en **bloques** de STEAMakersBlocks (capturas reales del editor) y en **código** `.ino`.
 - Retos de ampliación, criterios de observación para evaluar, errores frecuentes y orientaciones de aula (parejas con roles rotativos, bloques o código según el nivel).
 
@@ -26,6 +26,7 @@ Autor: **Manuel Romero Fraidía** (Departamento de Tecnología, IES Murillo, Sev
 | `docs/` | Páginas del curso (HTML autocontenido; funcionan sin conexión salvo las fuentes). |
 | `codigo/` | Sketches de Arduino IDE; cada carpeta lleva el nombre de su `.ino`. |
 | `imagenes/bloques/` | Capturas de los programas en bloques, reutilizables. |
+| `imagenes/montajes/` | Vistas de montaje en protoboard: Fritzing del grupo de 2018 (UNO, prácticas 1 y 2) y SVG propios editables. |
 | `prácticas con arduino/` | Las trece prácticas originales de 2018 en PDF (versión Arduino UNO / Arduino IDE). |
 
 ### Sketches
@@ -57,6 +58,7 @@ La ESP32 trabaja con lógica de **3,3 V**. El sensor HC-SR04 devuelve 5 V por EC
 © 2026 Manuel Romero Fraidía. Licencia [Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es); consulta `LICENSE`. Los integrantes del grupo de trabajo de 2018 autorizaron modificar las prácticas originales y cambiar su licencia (antes GPL-3.0).
 
 - Las capturas de bloques proceden del editor de demostración de STEAMakersBlocks.
+- Los montajes de Arduino UNO de las prácticas 1 y 2 están hechos con Fritzing por el grupo de trabajo de 2018; el resto son vistas SVG propias.
 - Arduino, ESP32 y las demás marcas pertenecen a sus titulares; este material no está afiliado a ellos.
 
 ## Recursos relacionados
