@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## v2.1 (2026-10-23) · Segunda tanda
+- Actualizadas las prácticas 3 (Zumbador), 4 (LED + potenciómetro), 5 (LED RGB) y 6 (LDR, con la farola automática).
+- Cada página indica la autoría de la práctica original de 2018.
+- Vistas de protoboard con cabecera analógica y nuevos componentes (zumbador, potenciómetro, LED RGB, LDR).
+
 ## v2.0 (2026-10-23) · Primera tanda
 - Curso renovado para Arduino UNO y ESP32 STEAMakers con STEAMakersBlocks.
 - Actualizadas las prácticas 1 (Hola mundo), 2 (LED + pulsador) y 9 (Ultrasonidos HC-SR04): esquemas, bloques, código `.ino`, retos y criterios de observación.

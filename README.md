@@ -10,8 +10,8 @@ Autor: **Manuel Romero Fraidía** (Departamento de Tecnología, IES Murillo, Sev
 
 | Prácticas | Estado |
 |---|---|
-| 1 Hola mundo · 2 LED + pulsador · 9 Ultrasonidos HC-SR04 | **Actualizadas** (UNO y ESP32, bloques y código) |
-| 3 · 4 · 5 · 6 · 7 · 8 · 10 · 11 · 12 · 13 | En actualización. Siguen disponibles en su versión original de 2018 |
+| 1 Hola mundo · 2 LED + pulsador · 3 Zumbador · 4 LED + potenciómetro · 5 LED RGB · 6 LDR · 9 Ultrasonidos HC-SR04 | **Actualizadas** (UNO y ESP32, bloques y código) |
+| 7 · 8 · 10 · 11 · 12 · 13 | En actualización. Siguen disponibles en su versión original de 2018 |
 
 ## Qué contiene cada práctica actualizada
 
@@ -41,17 +41,27 @@ Autor: **Manuel Romero Fraidía** (Departamento de Tecnología, IES Murillo, Sev
 | `p09_ultrasonidos_esp32` | ESP32 STEAMakers |
 | `p09b_alarma_uno` | Arduino UNO |
 | `p09b_alarma_esp32` | ESP32 STEAMakers |
+| `p03_zumbador_uno` | Arduino UNO |
+| `p03_zumbador_esp32` | ESP32 STEAMakers |
+| `p04_led_potenciometro_uno` | Arduino UNO |
+| `p04_led_potenciometro_esp32` | ESP32 STEAMakers |
+| `p05_led_rgb_uno` | Arduino UNO |
+| `p05_led_rgb_esp32` | ESP32 STEAMakers |
+| `p06_ldr_uno` | Arduino UNO |
+| `p06_ldr_esp32` | ESP32 STEAMakers |
+| `p06b_farola_uno` | Arduino UNO |
+| `p06b_farola_esp32` | ESP32 STEAMakers |
 
 ## Equivalencia de pines (ESP32 STEAMakers)
 
 La placa sigue el formato del UNO: usa los mismos nombres de pin (D2, D3…). En código de Arduino IDE hay que usar el número de **GPIO**:
 
-| Placa | D2 | D3 | D5 | D12 | D13 |
-|---|---|---|---|---|---|
-| Arduino UNO | 2 | 3 | 5 | 12 | 13 |
-| ESP32 STEAMakers | 26 | 25 | 16 | 19 | 18 |
+| Pin | D2 | D3 | D5 | D6 | D8 | D9 | D10 | D12 | D13 | A0 | A1 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Arduino UNO | 2 | 3 | 5 | 6 | 8 | 9 | 10 | 12 | 13 | A0 | A1 |
+| ESP32 STEAMakers | 26 | 25 | 16 | 27 | 12 | 13 | 5 | 19 | 18 | 2 | 4 |
 
-La ESP32 trabaja con lógica de **3,3 V**. El sensor HC-SR04 devuelve 5 V por ECHO y necesita un divisor de tensión (1 kΩ + 2 kΩ).
+La ESP32 trabaja con lógica de **3,3 V**: alimenta potenciómetros y divisores con 3V3. El sensor HC-SR04 devuelve 5 V por ECHO y necesita un divisor de tensión (1 kΩ + 2 kΩ). A0 y A1 de la ESP32 STEAMakers son del conversor ADC2 y dejan de funcionar si se usa el WiFi.
 
 ## Licencia y créditos
 
@@ -59,6 +69,7 @@ La ESP32 trabaja con lógica de **3,3 V**. El sensor HC-SR04 devuelve 5 V por EC
 
 - Las capturas de bloques proceden del editor de demostración de STEAMakersBlocks.
 - Los montajes de Arduino UNO de las prácticas 1 y 2 están hechos con Fritzing por el grupo de trabajo de 2018; el resto son vistas SVG propias.
+- Autoría de las prácticas originales de 2018: 1, 2 y 9, Manuel Romero Fraidía; 3, Mónica Cañón Pascual; 4 y 5, Dolores Nieves Díaz Luna; 6, Juan Antonio Perez (pueden verse en cada página).
 - Arduino, ESP32 y las demás marcas pertenecen a sus titulares; este material no está afiliado a ellos.
 
 ## Recursos relacionados
