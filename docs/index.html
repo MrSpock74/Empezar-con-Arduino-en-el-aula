@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empezar con Arduino en el aula · Curso para profesorado</title><meta name="description" content="Prácticas de Arduino UNO y ESP32 STEAMakers con bloques STEAMakersBlocks para llevar al aula de Tecnología: esquemas, programas en bloques y en código, retos y criterios de evaluación.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#0891b2;--accent-d:#0e7490;--orange:#c2660a;--orange-bg:#fbe9d6;--ink:#181c34;--ink-soft:#4c5170;--muted:#6b7094;--bg:#f4f5fb;--panel:#fff;--panel-2:#eceffb;--line:rgba(24,28,52,.13);--warn:#b45309}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Manrope',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;line-height:1.15;margin:0}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px}
+nav.top{position:sticky;top:0;z-index:5;background:rgba(244,245,251,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;padding:10px 18px;font-size:14px;font-weight:700}
+nav.top a{color:var(--ink-soft);text-decoration:none}nav.top a:hover{color:var(--accent-d)}
+header{padding:44px 0 22px}
+.pill{display:inline-block;background:var(--orange-bg);color:var(--orange);font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(32px,6vw,52px);margin:.35em 0 .25em;font-weight:800}h1 span{color:var(--accent)}
+.lead{font-size:19px;color:var(--ink-soft);max-width:680px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0}.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:700;color:var(--ink-soft)}
+section{padding:26px 0}h2{font-size:29px;margin-bottom:8px}h3{font-size:19px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px 22px;box-shadow:0 2px 10px rgba(24,28,52,.05)}
+.card ul,.card ol{margin:.3em 0 0;padding-left:22px;color:var(--ink-soft)}.card li{margin:.25em 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.tabs{display:flex;gap:8px;margin:6px 0 16px;flex-wrap:wrap}
+.tabs button{font:800 16px 'Manrope',sans-serif;padding:10px 18px;border-radius:12px;border:2px solid var(--accent);background:var(--panel);color:var(--accent-d);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--accent);color:#fff}
+.panel[hidden]{display:none}
+.board-title{display:none}
+table{border-collapse:collapse;width:100%;font-size:15.5px;background:var(--panel);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line)}th{background:var(--panel-2);font-weight:800}tr:last-child td{border-bottom:0}
+figure{margin:12px 0 0}figure img,figure svg{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0 0}
+ol.steps>li{counter-increment:s;position:relative;padding:6px 0 6px 46px;margin-bottom:4px;color:var(--ink-soft)}
+ol.steps>li::before{content:counter(s);position:absolute;left:0;top:4px;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#be185d);color:#fff;font:800 17px 'Baloo 2',sans-serif;display:flex;align-items:center;justify-content:center}
+code{background:var(--panel-2);border-radius:6px;padding:1px 6px;font-size:.9em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:#181c34;color:#e8ecff;border-radius:12px;padding:14px 18px;overflow-x:auto;font-size:14px;margin:12px 0 0;line-height:1.5}pre code{background:none;padding:0;color:inherit}
+.note,.warn{border-radius:14px;padding:13px 18px;margin:14px 0 0;font-size:15.5px}
+.note{background:var(--panel-2);border-left:5px solid var(--accent);color:var(--ink-soft)}
+.warn{background:#fff5e8;border-left:5px solid var(--warn);color:#6b3a07}
+details{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:2px 18px}
+summary{cursor:pointer;font-weight:800;padding:13px 0;font-family:'Baloo 2',sans-serif;font-size:18px}details p{margin:0 0 14px;color:var(--ink-soft);font-size:16px}
+a{color:var(--accent-d)}
+.btn{display:inline-block;padding:11px 20px;border-radius:12px;text-decoration:none;font-weight:800;border:2px solid var(--accent);color:var(--accent-d);background:var(--panel)}
+.btn.main{background:var(--accent);color:#fff}
+.nextprev{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px}
+footer{padding:30px 0 50px;font-size:14.5px;color:var(--muted)}
+.cardlink{display:block;text-decoration:none;color:inherit}.cardlink:hover{border-color:var(--accent)}
+.cardlink h3{color:var(--ink)}.cardlink p{margin:4px 0 0;color:var(--ink-soft);font-size:15.5px}
+.tag{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:var(--accent-d);background:var(--panel-2);border-radius:999px;padding:3px 10px}
+.tag.soon{color:var(--warn);background:#fbe9d6}
+@media print{nav.top,.tabs,.btn,.nextprev{display:none}body{background:#fff;font-size:12pt}.panel[hidden]{display:block!important}.board-title{display:block;font-family:'Baloo 2',sans-serif;font-size:22px;margin:18px 0 6px;color:var(--accent-d)}.card,figure,details{break-inside:avoid}details{display:block}}
+</style></head><body>
+<main class="wrap">
+<header><span class="pill">Curso para profesorado</span><h1>Empezar con <span>Arduino</span> en el aula</h1>
+<p class="lead">Trece prácticas para iniciarse en la robótica educativa con <b>Arduino UNO</b> y la <b>ESP32 STEAMakers</b>, programando con bloques (<b>STEAMakersBlocks</b>) o con código. Cada práctica trae su esquema de conexión, el programa para las dos placas, retos y orientaciones para llevarla al aula.</p>
+<div class="chips"><span class="chip">🔌 Arduino UNO</span><span class="chip">📶 ESP32 STEAMakers</span><span class="chip">🧩 Bloques y C++</span><span class="chip">🧰 Protoboard o shield Imagina TdR STEAM</span></div></header>
+<section><h2>Prácticas ya actualizadas</h2><p style="color:var(--muted);margin:0 0 14px">Primera tanda del curso renovado.</p><div class="grid"><a class="card cardlink" href="practica-01-hola-mundo.html"><span class="tag">Práctica 1</span><h3 style="margin-top:8px">Hola mundo: hacer parpadear un LED</h3><p>Tu primer programa: encender y apagar un LED cada segundo. Es el «Hola mundo» de la electrónica y sirve para comprobar que la placa, el cable y el editor funcionan.</p><span class="tag">⏱ 1 sesión (55 min)</span></a><a class="card cardlink" href="practica-02-pulsador.html"><span class="tag">Práctica 2</span><h3 style="margin-top:8px">Un LED con pulsador</h3><p>Ahora la placa también «escucha»: el LED se enciende solo mientras mantienes pulsado el botón. Es tu primera entrada digital.</p><span class="tag">⏱ 1 sesión (55 min)</span></a><a class="card cardlink" href="practica-09-ultrasonidos.html"><span class="tag">Práctica 9</span><h3 style="margin-top:8px">Medir distancias con ultrasonidos (HC-SR04)</h3><p>El sensor emite un pitido que no oímos, espera el eco y calcula la distancia. Medirás en el monitor serie y harás una alarma de proximidad.</p><span class="tag">⏱ 1–2 sesiones</span></a></div></section>
+<section><h2>Resto del curso</h2><p style="color:var(--muted);margin:0 0 14px">Siguen disponibles en su versión original de 2018 (Arduino UNO y Arduino IDE) mientras se actualizan.</p>
+<table><tr><th>Nº</th><th>Práctica</th><th>Original</th><th>Estado</th></tr><tr><td>3</td><td>Zumbador</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/3%20zumbador.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>4</td><td>LED y potenciómetro</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/4%20Control%20led%20%2B%20potenci%C3%B3metro.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>5</td><td>LED RGB</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/5%20Led%20RGB.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>6</td><td>LDR (sensor de luz)</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/6%20LDR.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>7</td><td>Temperatura TMP36</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/7%20Sensor%20de%20temperatura%20TMP36.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>8</td><td>Sensor de infrarrojos</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/8%20Sensor%20de%20infrarrojos.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>10</td><td>Servo de rotación continua</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/10%20Control%20%20servo%20de%20rotaci%C3%B3n%20cont%C3%ADnua.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>11</td><td>Motor DC con L298N</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/11%20Control%20%20motor%20DC%20con%20L298n.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>12</td><td>Pantalla LCD</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/12%20Pantalla%20LCD.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr><tr><td>13</td><td>Matriz de LEDs</td><td><a href="https://github.com/MrSpock74/Empezar-con-Arduino-en-el-aula/blob/master/pr%C3%A1cticas%20con%20arduino/13%20Matriz%20de%20leds.pdf">PDF 2018</a></td><td><span class="tag soon">En actualización</span></td></tr></table></section>
+<section><h2>Antes de empezar</h2><div class="grid">
+<div class="card"><h3>Qué necesitas</h3><ul><li>Una placa Arduino UNO <i>o</i> una ESP32 STEAMakers, con cable USB.</li><li>Navegador Chrome o Edge para subir los programas desde STEAMakersBlocks.</li><li>Protoboard, cables y componentes de cada práctica; o la shield Imagina TdR STEAM.</li></ul></div>
+<div class="card"><h3>Dos placas, un mismo programa</h3><ul><li>Los pines de la ESP32 STEAMakers tienen el mismo formato que el UNO (D2, D3…), pero internamente son otros GPIO.</li><li>La ESP32 trabaja a <b>3,3 V</b>: cuidado con las señales de 5 V.</li><li>Cada práctica indica las diferencias.</li></ul></div></div></section>
+<section><h2>Recursos relacionados</h2><ul style="color:var(--ink-soft)"><li><a href="https://fgcoca.github.io/ESP32-STEAMakers/">ESP32-STEAMakers</a> y la <a href="https://fgcoca.github.io/Guia_fundamental_ESP32_STEAMakers/">Guía fundamental de la ESP32 STEAMakers</a>, de Federico Coca.</li>
+<li><a href="https://pedroruizf.github.io/arduino_tdr_steam/index.html">Arduino TdR STEAM</a>, curso de Pedro Ruiz (CC BY-SA 4.0).</li>
+<li><a href="https://www.steamakersblocks.com">STEAMakersBlocks</a>: editor de bloques en el que se basan las capturas.</li></ul></section>
+</main>
+<footer><div class="wrap"><p>© 2026 Manuel Romero Fraidía, a partir de las prácticas del grupo de trabajo «Empezar con Arduino en el aula» (Tecnología, 2018), cuyos integrantes autorizaron su modificación y el cambio de licencia. Licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">Creative Commons Atribución-NoComercial-CompartirIgual 4.0 (CC BY-NC-SA 4.0)</a>. Arduino y ESP32 son marcas de sus titulares y STEAMakersBlocks es una herramienta de terceros; este material no está afiliado a ellos. Las capturas de bloques proceden del editor de demostración de <a href="https://www.steamakersblocks.com">STEAMakersBlocks</a>.</p></div></footer></body></html>
